@@ -1,6 +1,6 @@
 TRUNCATE recipes, folders RESTART IDENTITY CASCADE;
 
-INSERT INTO folders (name)
+INSERT INTO folders (folder_name)
 VALUES
     ('Asian'),
     ('BBQ'),
