@@ -8,6 +8,6 @@ CREATE TABLE recipes (
     recipe_ingredients TEXT,
     recipe_directions TEXT,
     recipe_folder INTEGER
-        REFERENCES folder_id(id) ON DELETE CASCADE NOT NULL,
+        REFERENCES folders(folder_id) ON DELETE CASCADE NOT NULL,
     content TEXT
 );
