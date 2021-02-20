@@ -51,7 +51,7 @@ recipeRouter
         //check for missing fields
         for (const [key, value] of Object.entries(newRecipe)) {
             if (value == null) {
-                return res.statusCode(400).json({
+                return res.status(400).json({
                     error: {message: `Missing '${key}' in request body`}
                 })
             }
@@ -59,7 +59,7 @@ recipeRouter
 
         RecipeService.insertRecipe(req.app.get('db'), newRecipe)
             .then(recipe => {
-                res.statusCode(201)
+                res.status(201)
                     .location(path.posix.join(req.originalUrl, `${recipe.id}`))
                     .json(serializeRecipe(recipe))
             })
@@ -72,7 +72,7 @@ recipeRouter
         RecipeService.getById(req.app.get('db'), req.params.recipe_id)
             .then(recipe => {
                 if (!recipe) {
-                    return res.statusCode(404).json({
+                    return res.status(404).json({
                         error: {message: `Recipe doesn't exist`}
                     })
                 }
@@ -107,7 +107,7 @@ recipeRouter
         }
         
         if (!name && !description && !directions && !folder_id) {
-            return res.statusCode(400).json({
+            return res.status(400).json({
                 error: {
                     message: `Request body must contain a 'name', 'description', 'directions' or 'folder_id' field`
                 }
@@ -120,14 +120,14 @@ recipeRouter
             recipeToUpdate
         )
             .then(() => {
-                res.statusCode(204).end()
+                res.status(204).end()
             })
             .catch(next)
     })
     .delete((req, res, next) => {
         RecipeService.deleteRecipe(req.app.get('db'), req.params.recipe_id)
             .then(() => {
-                res.statusCode(204).end()
+                res.status(204).end()
             })
             .catch(next)
     })
