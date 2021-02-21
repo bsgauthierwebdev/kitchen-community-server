@@ -4,7 +4,7 @@ const {PORT, DATABASE_URL, TEST_DATABASE_URL} = require('./config')
 
 const db = knex({
     client: 'pg',
-    connection: (process.env.NODE_ENV === 'test')
+    connection: (process.env.NODE_ENV === 'production')
         ? TEST_DATABASE_URL
         : DATABASE_URL,
 })
