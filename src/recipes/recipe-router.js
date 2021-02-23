@@ -10,8 +10,8 @@ const serializeRecipe = recipe => ({
     ...recipe,
     name: xss(recipe.name),
     description: xss(recipe.description),
-    prep_time: xss(recipe.prep_time),
-    cook_time: xss(recipe.cook_time),
+    prepTime: xss(recipe.prepTime),
+    cookTime: xss(recipe.cookTime),
     servings: xss(recipe.servings),
     ingredients: xss(recipe.ingredients),
     directions: xss(recipe.directions)
@@ -30,22 +30,22 @@ recipeRouter
         const {
             name, 
             description, 
-            prep_time, 
-            cook_time, 
+            prepTime, 
+            cookTime, 
             servings, 
             ingredients, 
             directions, 
-            folder_id
+            folderId
         } = req.body
         const newRecipe = {
             name, 
             description, 
-            prep_time, 
-            cook_time, 
+            prepTime, 
+            cookTime, 
             servings, 
             ingredients, 
             directions, 
-            folder_id
+            folderId
         }
 
         //check for missing fields
@@ -88,28 +88,28 @@ recipeRouter
         const {
             name, 
             description, 
-            prep_time, 
-            cook_time, 
+            prepTime, 
+            cookTime, 
             servings, 
             ingredients, 
             directions, 
-            folder_id
+            folderId
         } = req.body
         const recipeToUpdate = {
             name, 
             description, 
-            prep_time, 
-            cook_time, 
+            prepTime, 
+            cookTime, 
             servings, 
             ingredients, 
             directions, 
-            folder_id
+            folderId
         }
         
-        if (!name && !description && !directions && !folder_id) {
+        if (!name && !description && !directions && !folderId) {
             return res.status(400).json({
                 error: {
-                    message: `Request body must contain a 'name', 'description', 'directions' or 'folder_id' field`
+                    message: `Request body must contain a 'name', 'description', 'directions' or 'folderId' field`
                 }
             })
         }
