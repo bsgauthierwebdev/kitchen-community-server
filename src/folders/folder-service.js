@@ -1,7 +1,7 @@
 const FolderService = {
     getAllFolders(knex) {
         return knex
-            .select('*').from('folders')
+            .select('*').from('folders').orderBy('name')
     },
 
     insertFolder(knex, newFolder) {
