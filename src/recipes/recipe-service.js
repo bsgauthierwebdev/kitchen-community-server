@@ -1,6 +1,8 @@
 const RecipeService = {
     getAllRecipes(knex) {
-        return knex.select('*').from('recipes').orderBy('id', 'desc')
+        return knex.select('*')
+        .from('recipes')
+        .orderBy('id', 'desc')
     },
 
     insertRecipe(knex, newRecipe) {
