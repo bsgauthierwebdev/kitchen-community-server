@@ -3,10 +3,10 @@ CREATE TABLE recipes (
     name TEXT NOT NULL,
     modified TIMESTAMPTZ DEFAULT now() NOT NULL,
     description TEXT NOT NULL,
-    "prepTime" TEXT NOT NULL,
-    "cookTime" TEXT NOT NULL,
-    servings INTEGER NOT NULL,
-    ingredients TEXT NOT NULL,
+    "prepTime" TEXT,
+    "cookTime" TEXT,
+    servings INTEGER,
+    ingredients TEXT,
     directions TEXT NOT NULL,
     "folderId" INTEGER
         REFERENCES folders(id) ON DELETE CASCADE NOT NULL
