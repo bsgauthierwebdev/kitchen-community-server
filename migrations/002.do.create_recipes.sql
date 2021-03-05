@@ -6,7 +6,7 @@ CREATE TABLE recipes (
     "prepTime" TEXT,
     "cookTime" TEXT,
     servings INTEGER,
-    ingredients TEXT,
+    ingredients TEXT NOT NULL,
     directions TEXT NOT NULL,
     "folderId" INTEGER
         REFERENCES folders(id) ON DELETE CASCADE NOT NULL
@@ -20,7 +20,7 @@ VALUES
     ('BBQ'),
     ('Comfort Food'),
     ('Italian'),
-    ('Kitchen Hacks and Hints'),
+    ('Kitchen Hints and Hacks'),
     ('Mediterranean'),
     ('Seafood'),
     ('Vegetarian / Vegan');
