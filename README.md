@@ -30,9 +30,10 @@ This API allowes users to view and post folders and recipes, as well as delete r
 
 ### Recipes Endpoints
 #### POST/api/recipes
----Name | Type | In | Description
----id | string | body | REQUIRED
-<p>modified        string      body    REQUIRED
+Name             |  Type |      In |    Description
+-----------------|-------|---------|---------------
+id | string | body | REQUIRED
+modified | string | body | REQUIRED
 <p>description     string      body    REQUIRED
 <p>prepTime        string      body
 <p>cookTime        string      body
