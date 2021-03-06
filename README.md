@@ -10,10 +10,10 @@ This API allowes users to view and post folders and recipes, as well as delete r
 ## Endpoints
 
 ### Folders Endpoints
-POST/api/folders
-Name        Type        In      Description
-id          string      body    REQUIRED
-name        string      body    REQUIRED
+<p>POST/api/folders
+<p>Name        Type        In      Description
+<p>id          string      body    REQUIRED
+<p>name        string      body    REQUIRED
 
 <li>Status: 400 `Missing '${key}' in request body`</li>
 <li>Status: 201</li>
