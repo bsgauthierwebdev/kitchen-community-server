@@ -11,9 +11,10 @@ This API allowes users to view and post folders and recipes, as well as delete r
 
 ### Folders Endpoints
 #### POST/api/folders
-<p>Name        Type        In      Description
-<p>id          string      body    REQUIRED
-<p>name        string      body    REQUIRED
+Name         | Type        | In      | Description
+-------------|-------------|---------|------------
+id | string | body | REQUIRED
+name | string | body | REQUIRED
 
 <li>Status: 400 `Missing '${key}' in request body`</li>
 <li>Status: 201</li>
@@ -34,13 +35,13 @@ Name             |  Type |      In |    Description
 -----------------|-------|---------|---------------
 id | string | body | REQUIRED
 modified | string | body | REQUIRED
-<p>description     string      body    REQUIRED
-<p>prepTime        string      body
-<p>cookTime        string      body
-<p>servings        number      body
-<p>ingredients     string      body    REQUIRED
-<p>directions      string      body    REQUIRED
-<p>folderId        number      body    REQUIRED
+description | string | body | REQUIRED
+prepTime | string | body |
+cookTime | string | body |
+servings | number | body |
+ingredients | string | body | REQUIRED
+directions | string | body | REQUIRED
+folderId | number | body | REQUIRED
 
 <li>Status: 400 `Missing '${key} in request body'</li>
 <li>Status: 201</li>
