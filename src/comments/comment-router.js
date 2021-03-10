@@ -44,7 +44,7 @@ commentRouter
     })
 
 commentRouter
-    .route('/:recipeId/commentId')
+    .route('/:recipeId')
     .all;;((req, res, next) => {
         CommentService.getById(req.app.get('db'), req.params.commentId)
             .then(comment => {

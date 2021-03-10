@@ -7,6 +7,7 @@ const {NODE_ENV} = require('./config')
 // const {CLIENT_ORIGIN} = require('./config')
 const folderRouter = require('./folders/folder-router')
 const recipeRouter = require('./recipes/recipe-router')
+const commentRouter = require('./comments/comment-router')
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/folders', folderRouter)
 app.use('/api/recipes', recipeRouter)
+app.use('/api/comments', commentRouter)
 
 app.use(function errorHandler(error, req, res, next) {
     let response
