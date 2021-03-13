@@ -43,52 +43,52 @@ commentRouter
             .catch(next)
     })
 
-// commentRouter
-//     .route('/:recipeId')
-//     .all;;((req, res, next) => {
-//         CommentService.getById(req.app.get('db'), req.params.commentId)
-//             .then(comment => {
-//                 if (!comment) {
-//                     return res.status(404).json({
-//                         error: {message: `Comment doesn't exist`}
-//                     })
-//                 }
-//                 res.comment = comment
-//                 next()
-//             })
-//             .catch(next)
-//     })
-//     .get((req, res, next) => {
-//         res.json(serializeComment(res.comment))
-//     })
-//     .patch(jsonParser, (req, res, next) => {
-//         const {name, content, recipeId} = req.body
-//         const commentToUpdate = {name, content, recipeId}
+commentRouter
+    .route('/:recipeId')
+    .all((req, res, next) => {
+        CommentService.getById(req.app.get('db'), req.params.commentId)
+            .then(comment => {
+                if (!comment) {
+                    return res.status(404).json({
+                        error: {message: `Comment doesn't exist`}
+                    })
+                }
+                res.comment = comment
+                next()
+            })
+            .catch(next)
+    })
+    .get((req, res, next) => {
+        res.json(serializeComment(res.comment))
+    })
+    .patch(jsonParser, (req, res, next) => {
+        const {name, content, recipeId} = req.body
+        const commentToUpdate = {name, content, recipeId}
 
-//         if (!name &&!content && !recipeId) {
-//             return res.status(400).json({
-//                 error: {
-//                     message: `Request body must contain a 'name', 'content' and 'recipeId' field`
-//                 }
-//             })
-//         }
+        if (!name &&!content && !recipeId) {
+            return res.status(400).json({
+                error: {
+                    message: `Request body must contain a 'name', 'content' and 'recipeId' field`
+                }
+            })
+        }
 
-//         CommentService.updateComment(
-//             req.app.get('db'),
-//             req.params.commentId,
-//             commentToUpdate
-//         )
-//             .then(() => {
-//                 res.status(204).end()
-//             })
-//             .catch(next)
-//     })
-//     .delete((req, res, next) => {
-//         CommentService.deleteComment(req.app.get('db'), req.params.commentId)
-//             .then(() => {
-//                 res.status(204).end()
-//             })
-//             .catch(next)
-//     })
+        CommentService.updateComment(
+            req.app.get('db'),
+            req.params.commentId,
+            commentToUpdate
+        )
+            .then(() => {
+                res.status(204).end()
+            })
+            .catch(next)
+    })
+    .delete((req, res, next) => {
+        CommentService.deleteComment(req.app.get('db'), req.params.commentId)
+            .then(() => {
+                res.status(204).end()
+            })
+            .catch(next)
+    })
 
     module.exports = commentRouter
